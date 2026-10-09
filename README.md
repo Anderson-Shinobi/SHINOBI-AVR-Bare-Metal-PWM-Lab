@@ -14,7 +14,7 @@
 
 **[▶ Executar projeto no Wokwi](https://wokwi.com/projects/477357756254868481)** · [Código-fonte](sketch.ino) · [Circuito](diagram.json) · [Relatório VCD](evidence/VCD_VALIDATION.md) · [Arquivo VCD original](evidence/wokwi-logic.vcd)
 
-*As capturas do experimento foram fornecidas pelo autor e documentadas na sessão anterior. O projeto público no Wokwi pode ter alterações visuais em relação ao `diagram.json` arquivado aqui; o firmware e o diagrama do site original foram copiados sem mudanças de conteúdo.*
+*O projeto público no Wokwi pode sofrer alterações independentes. Para reproduzir esta versão do experimento, use os arquivos `sketch.ino` e `diagram.json` versionados neste repositório. Os testes de integridade asseguram a equivalência desses arquivos com a versão originalmente publicada no portfólio.*
 
 ## Visão geral
 
