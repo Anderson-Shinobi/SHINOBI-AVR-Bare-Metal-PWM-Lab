@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "author": "SHINOBI Engineering",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "uno",
+      "top": 30,
+      "left": 10,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 130,
+      "left": 375,
+      "rotate": 90,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 115,
+      "left": 490,
+      "attrs": {
+        "color": "blue",
+        "label": "PWM / D9"
+      }
+    },
+    {
+      "type": "wokwi-logic-analyzer",
+      "id": "logic1",
+      "top": 265,
+      "left": 345,
+      "attrs": {
+        "channelNames": "PWM_D9,GPIO_D13,D2,D3,D4,D5,D6,D7",
+        "bufferSize": "20000",
+        "filename": "shinobi-pwm-capture"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "uno:9",
+      "r1:1",
+      "green",
+      []
+    ],
+    [
+      "r1:2",
+      "led1:A",
+      "green",
+      []
+    ],
+    [
+      "led1:C",
+      "uno:GND.2",
+      "black",
+      []
+    ],
+    [
+      "uno:9",
+      "logic1:D0",
+      "green",
+      []
+    ],
+    [
+      "uno:13",
+      "logic1:D1",
+      "orange",
+      []
+    ],
+    [
+      "uno:GND.3",
+      "logic1:GND",
+      "black",
+      []
+    ]
+  ],
+  "serialMonitor": {
+    "display": "auto",
+    "newline": "lf"
+  }
+}
