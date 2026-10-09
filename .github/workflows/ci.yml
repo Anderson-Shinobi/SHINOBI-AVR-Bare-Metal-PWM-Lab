@@ -1,0 +1,21 @@
+name: AVR firmware and VCD validation
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install AVR toolchain
+        run: sudo apt-get update && sudo apt-get install -y gcc-avr avr-libc
+      - name: Compile register-level AVR firmware
+        run: |
+          avr-g++ -std=gnu++11 -Os -Wall -Wextra -Werror -mmcu=atmega328p -DF_CPU=16000000UL \
+            -x c++ -c sketch.ino -o /tmp/shinobi-pwm.o
+      - name: Verify firmware, circuit, license and original Wokwi trace
+        run: python3 -m unittest discover -s tests -v
+      - name: Reproduce Wokwi VCD measurements
+        run: python3 scripts/analyze_vcd.py evidence/wokwi-logic.vcd
